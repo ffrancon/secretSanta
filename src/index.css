@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Noto";
+  src: url('/fonts/NotoSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url('/fonts/NotoSans-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url('/fonts/NotoSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url('/fonts/NotoSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url('/fonts/NotoSans-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url('/fonts/Lora-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url('/fonts/Lora-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satisfy";
+  src: url('/fonts/Satisfy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --primary: #F04B4B;
+  --secondary: #60DF9B;
+  --third: #af3636;
+  --white: #FEFEFE;
+  --grey: #454545;
+
+  --headerHeight: 100px;
+
+  font-family: Lora, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  color: var(--grey);
+}
+
+html, body {
+  background-color: var(--white);
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-container {
+  padding-top: 60px;
+}
+
+.Header {
+  width: 100vw;
+  height: var(--headerHeight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.4rem;
+  box-shadow: 2px 5px 20px rgba(100, 100, 100, 0.1);
+  font-family: Satisfy;
+}
+
+.Header--primary {
+  color: var(--primary);
+}
+
+.Header--secondary {
+  color: var(--secondary);
+}
+
+.Header svg {
+  height: 100px;
+}
+
+.App-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.Button {
+  background: var(--primary);
+  border: none;
+  border-radius: 2em;
+  padding: 12px 20px;
+  font-family: 'Noto';
+  font-weight: 600;
+  color: var(--white);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.Button:hover {
+  background: var(--third);
+}

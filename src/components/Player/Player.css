@@ -1,0 +1,60 @@
+.Player {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 10px 16px 20px;
+  background: #fff;
+  box-shadow: 2px 5px 20px rgba(100, 100, 100, 0.1);
+  font-weight: 600;
+}
+
+.Player p {
+  margin: 0;
+}
+
+.Player-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.Player-button {
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  color: var(--grey);
+  transition: color 0.2s ease;
+}
+
+.Player-button > svg {
+  width: 28px;
+  height: 28px;
+}
+
+.Player-button:hover {
+  color: var(--primary);
+}
+
+.Player-input {
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 44px 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 2em;
+  font-family: Noto;
+  display: flex;
+}
+
+hr {
+  margin: 40px auto !important;
+  width: 50%;
+  background: var(--grey);
+}

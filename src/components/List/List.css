@@ -1,0 +1,75 @@
+.List {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.List-inputContainer {
+  margin-top: 20px;
+  position: relative;
+  width: 400px;
+}
+
+.List-input {
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 44px 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 2em;
+  font-family: Noto;
+  display: flex;
+}
+
+.List-input:focus-visible {
+  outline-color: var(--primary);
+}
+
+.List-input ~ button {
+  position: absolute;
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4px;
+  color: var(--white);
+  transition: background 0.2s ease;
+}
+
+.List-input ~ button > svg {
+  width: 30px;
+  height: 30px;
+}
+
+.List-input ~ button:hover {
+  background: var(--third);
+}
+
+.List-title {
+  margin: 30px 0 0;
+  font-size: 2rem;
+}
+
+.List-emptyList {
+  margin-top: 20px;
+  font-style: italic;
+  font-family: "Noto";
+  color: #777;
+}
+
+.List-players {
+  width: 100%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}

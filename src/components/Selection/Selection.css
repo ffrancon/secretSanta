@@ -1,0 +1,11 @@
+.Selection-cards {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.Selection-title {
+    font-size: 2rem;
+    margin-top: 40px;
+}
