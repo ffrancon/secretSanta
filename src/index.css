@@ -116,6 +116,9 @@ html, body {
 }
 
 .Button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: var(--primary);
   border: none;
   border-radius: 2em;
@@ -126,6 +129,11 @@ html, body {
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.2s ease;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .Button:hover {

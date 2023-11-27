@@ -1,11 +1,27 @@
+.Selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .Selection-cards {
-    margin-top: 20px;
+    margin: 20px 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    width: 100%;
 }
 
 .Selection-title {
     font-size: 2rem;
     margin-top: 40px;
 }
+
+.Selection-copied {
+    margin: 0;
+    font-family: "Noto";
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--primary);
+  }
