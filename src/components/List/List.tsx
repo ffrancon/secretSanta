@@ -80,7 +80,10 @@ const List = () => {
           <IconAdd />
         </button>
       </div>
-      <h2 className="List-title">Liste des participants</h2>
+      <h2 className="List-title">
+        Liste des participants
+        {players.length > 0 ? ` (${players.length})` : ""}
+      </h2>
       {players.length > 0 ? (
         <div className="List-players">
           {players.map((p) => (
