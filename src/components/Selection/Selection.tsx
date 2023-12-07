@@ -9,6 +9,7 @@ import "./Selection.css";
 import { slugify } from "@utils/slugify";
 import { ReactComponent as IconCheck } from "@icons/check.svg";
 import { ReactComponent as IconCopy } from "@icons/copy.svg";
+import { useCopyText } from "@/hooks/useCopyText";
 
 const Selection = () => {
   const players = useGetPlayers();
@@ -22,18 +23,7 @@ const Selection = () => {
     setSecretSanta([]);
   }, [players]);
 
-  const [copied, setCopied] = useState(false);
-  const copyText = () => {
-    navigator.clipboard.writeText(JSON.stringify(secretSanta));
-    setCopied(true);
-  };
-
-  useEffect(() => {
-    if (copied)
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-  }, [copied]);
+  const { isCopied, copyText } = useCopyText(JSON.stringify(secretSanta));
 
   return (
     <div className="Selection">
@@ -59,7 +49,7 @@ const Selection = () => {
             <IconCopy />
             <span>Copier la liste</span>
           </button>
-          {copied && <p className="Selection-copied">Liste copiée</p>}
+          {isCopied && <p className="Selection-copied">Liste copiée</p>}
         </>
       )}
     </div>
