@@ -18,30 +18,6 @@
   gap: 5px;
 }
 
-.Player-button {
-  padding: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border: none;
-  border-radius: 2em;
-  cursor: pointer;
-  color: var(--grey);
-  transition: color 0.2s ease;
-}
-
-.Player-button > svg {
-  width: 28px;
-  height: 28px;
-}
-
-.Player-button:hover {
-  color: var(--primary);
-}
-
 .Player-input {
   height: 40px;
   width: 100%;

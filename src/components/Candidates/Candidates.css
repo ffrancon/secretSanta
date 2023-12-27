@@ -1,17 +1,17 @@
-.List {
+.Candidates {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.List-inputContainer {
+.Candidates-inputContainer {
   margin-top: 20px;
   position: relative;
   width: 400px;
 }
 
-.List-input {
+.Candidates-input {
   height: 50px;
   width: 100%;
   box-sizing: border-box;
@@ -22,11 +22,11 @@
   display: flex;
 }
 
-.List-input:focus-visible {
+.Candidates-input:focus-visible {
   outline-color: var(--primary);
 }
 
-.List-input ~ button {
+.Candidates-input ~ button {
   position: absolute;
   padding: 0;
   width: 42px;
@@ -45,28 +45,28 @@
   transition: background 0.2s ease;
 }
 
-.List-input ~ button > svg {
+.Candidates-input ~ button > svg {
   width: 30px;
   height: 30px;
 }
 
-.List-input ~ button:hover {
+.Candidates-input ~ button:hover {
   background: var(--third);
 }
 
-.List-title {
+.Candidates-title {
   margin: 30px 0 0;
   font-size: 2rem;
 }
 
-.List-emptyList {
+.Candidates-emptyList {
   margin-top: 20px;
   font-style: italic;
-  font-family: "Noto";
+  font-family: 'Noto';
   color: #777;
 }
 
-.List-players {
+.Candidates-players {
   width: 100%;
   margin-top: 20px;
   display: grid;

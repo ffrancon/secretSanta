@@ -1,9 +1,9 @@
-import { useState } from "react";
-import "./Player.css";
-import { ReactComponent as IconCross } from "@icons/cross.svg";
-import { ReactComponent as IconEdit } from "@icons/edit.svg";
-import { ReactComponent as IconBin } from "@icons/bin.svg";
-import { ReactComponent as IconCheck } from "@icons/check.svg";
+import { useState } from 'react';
+import './Player.css';
+import { ReactComponent as IconCross } from '@icons/cross.svg';
+import { ReactComponent as IconEdit } from '@icons/edit.svg';
+import { ReactComponent as IconBin } from '@icons/bin.svg';
+import { ReactComponent as IconCheck } from '@icons/check.svg';
 
 type PlayerProps = {
   player: string;
@@ -11,30 +11,30 @@ type PlayerProps = {
 };
 
 const Player = ({ player, updatePlayers }: PlayerProps) => {
-  const [mode, setMode] = useState("display");
+  const [mode, setMode] = useState('display');
   const [value, setValue] = useState(player);
 
   return (
     <div className="Player">
-      {mode === "display" ? (
+      {mode === 'display' ? (
         <>
           <p>{player}</p>
           <div className="Player-buttons">
             <button
               aria-label="edit"
               onClick={() => {
-                setMode("edit");
+                setMode('edit');
               }}
-              className="Player-button"
+              className="IconButton"
             >
               <IconEdit />
             </button>
             <button
               aria-label="delete"
               onClick={() => {
-                updatePlayers({ action: "remove", player });
+                updatePlayers({ action: 'remove', player });
               }}
-              className="Player-button"
+              className="IconButton"
             >
               <IconBin />
             </button>
@@ -53,19 +53,19 @@ const Player = ({ player, updatePlayers }: PlayerProps) => {
             <button
               aria-label="validate"
               onClick={() => {
-                updatePlayers({ action: "edit", player, newValue: value });
-                setMode("display");
+                updatePlayers({ action: 'edit', player, newValue: value });
+                setMode('display');
               }}
-              className="Player-button"
+              className="IconButton"
             >
               <IconCheck />
             </button>
             <button
               onClick={() => {
                 setValue(player);
-                setMode("display");
+                setMode('display');
               }}
-              className="Player-button"
+              className="IconButton"
             >
               <IconCross />
             </button>

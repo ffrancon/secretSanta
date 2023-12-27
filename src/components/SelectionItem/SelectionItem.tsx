@@ -1,6 +1,6 @@
-import "./SelectionItem.css";
-import { ReactComponent as IconCopy } from "@icons/copy.svg";
-import { useCopyText } from "@/hooks/useCopyText";
+import './SelectionItem.css';
+import { ReactComponent as IconCopy } from '@icons/copy.svg';
+import { useCopyText } from '@/hooks/useCopyText';
 
 const SelectionItem = ({
   giver,
@@ -25,11 +25,7 @@ const SelectionItem = ({
       </div>
       <div className="SelectionItem-buttonContainer">
         {isCopied && <p className="SelectionItem-copied">Message copié</p>}
-        <button
-          aria-label="copy"
-          onClick={copyText}
-          className="SelectionItem-button"
-        >
+        <button aria-label="copy" onClick={copyText} className="IconButton">
           <IconCopy />
         </button>
       </div>

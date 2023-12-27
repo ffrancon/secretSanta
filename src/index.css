@@ -1,64 +1,64 @@
 @font-face {
-  font-family: "Noto";
+  font-family: 'Noto';
   src: url('/fonts/NotoSans-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Noto";
+  font-family: 'Noto';
   src: url('/fonts/NotoSans-Italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Noto";
+  font-family: 'Noto';
   src: url('/fonts/NotoSans-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Noto";
+  font-family: 'Noto';
   src: url('/fonts/NotoSans-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Noto";
+  font-family: 'Noto';
   src: url('/fonts/NotoSans-SemiBoldItalic.woff2') format('woff2');
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Lora";
+  font-family: 'Lora';
   src: url('/fonts/Lora-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Lora";
+  font-family: 'Lora';
   src: url('/fonts/Lora-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Satisfy";
+  font-family: 'Satisfy';
   src: url('/fonts/Satisfy-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 :root {
-  --primary: #F04B4B;
-  --secondary: #60DF9B;
+  --primary: #f04b4b;
+  --secondary: #60df9b;
   --third: #af3636;
-  --white: #FEFEFE;
+  --white: #fefefe;
   --grey: #454545;
 
   --headerHeight: 100px;
@@ -73,10 +73,15 @@
   color: var(--grey);
 }
 
-html, body {
+html,
+body {
   background-color: var(--white);
   padding: 0;
   margin: 0;
+}
+
+body.modal-open {
+  overflow-y: hidden;
 }
 
 .App {
@@ -138,4 +143,28 @@ html, body {
 
 .Button:hover {
   background: var(--third);
+}
+
+.IconButton {
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  color: var(--grey);
+  transition: color 0.2s ease;
+
+  & svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.IconButton:hover {
+  color: var(--primary);
 }

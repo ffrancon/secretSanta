@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useGetPlayersContext } from "@context/players";
-import Player from "../Player/Player";
-import "./List.css";
-import { ReactComponent as IconAdd } from "@icons/add.svg";
-import { slugify } from "@utils/slugify";
+import React, { useState } from 'react';
+import { useGetPlayersContext } from '@context/players';
+import Player from '../Player/Player';
+import './Candidates.css';
+import { ReactComponent as IconAdd } from '@icons/add.svg';
+import { slugify } from '@utils/slugify';
 
 type ActionParams = {
   action: string;
@@ -13,21 +13,21 @@ type ActionParams = {
 
 const getUpdatedPlayers = (
   players: string[],
-  { action, player, newValue = "" }: ActionParams
+  { action, player, newValue = '' }: ActionParams
 ) => {
   const newPlayers = [...players];
   if (!player) return null;
   switch (action) {
-    case "add": {
+    case 'add': {
       if (!players.includes(player)) newPlayers.push(player);
       return newPlayers;
     }
-    case "remove": {
+    case 'remove': {
       const index = players.indexOf(player);
       newPlayers.splice(index, 1);
       return newPlayers;
     }
-    case "edit": {
+    case 'edit': {
       if (!players.includes(newValue)) {
         const index = players.indexOf(player);
         newPlayers.splice(index, 1, newValue);
@@ -39,8 +39,8 @@ const getUpdatedPlayers = (
   }
 };
 
-const List = () => {
-  const [value, setValue] = useState("");
+const Candidates = () => {
+  const [value, setValue] = useState('');
   const { players, setPlayers } = useGetPlayersContext();
 
   const updatePlayers = ({ action, player, newValue }: ActionParams) => {
@@ -51,13 +51,13 @@ const List = () => {
     });
     if (!!updatedPlayers) {
       setPlayers(updatedPlayers);
-      setValue("");
+      setValue('');
     }
   };
 
   return (
-    <div className="List">
-      <div className="List-inputContainer">
+    <div className="Candidates">
+      <div className="Candidates-inputContainer">
         <input
           value={value}
           onChange={(e) => {
@@ -65,27 +65,27 @@ const List = () => {
           }}
           onKeyDown={(e) => {
             const targetValue = (e.target as HTMLInputElement).value;
-            if (e.key === "Enter" && !!targetValue) {
-              updatePlayers({ action: "add", player: targetValue });
+            if (e.key === 'Enter' && !!targetValue) {
+              updatePlayers({ action: 'add', player: targetValue });
             }
           }}
-          className="List-input"
+          className="Candidates-input"
         />
         <button
-          className="List-addButton"
+          className="Candidates-addButton"
           onClick={() => {
-            updatePlayers({ action: "add", player: value });
+            updatePlayers({ action: 'add', player: value });
           }}
         >
           <IconAdd />
         </button>
       </div>
-      <h2 className="List-title">
+      <h2 className="Candidates-title">
         Liste des participants
-        {players.length > 0 ? ` (${players.length})` : ""}
+        {players.length > 0 ? ` (${players.length})` : ''}
       </h2>
       {players.length > 0 ? (
-        <div className="List-players">
+        <div className="Candidates-players">
           {players.map((p) => (
             <React.Fragment key={`player-${slugify(p)}`}>
               <Player player={p} updatePlayers={updatePlayers} />
@@ -93,7 +93,7 @@ const List = () => {
           ))}
         </div>
       ) : (
-        <p className="List-emptyList">
+        <p className="Candidates-emptyList">
           Aucun participant n'a encore été saisi.
         </p>
       )}
@@ -101,4 +101,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default Candidates;
