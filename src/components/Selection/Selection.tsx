@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useGetPlayers } from "../../context/players";
+import React, { useEffect, useState } from 'react';
+import { useGetPlayers } from '../../context/players';
 import {
   SecretSantaResult,
   generateSecretSantaList,
-} from "../../utils/generateSecretSantaList";
-import SelectionItem from "../SelectionItem/SelectionItem";
-import "./Selection.css";
-import { slugify } from "@utils/slugify";
-import { ReactComponent as IconCheck } from "@icons/check.svg";
-import { ReactComponent as IconCopy } from "@icons/copy.svg";
-import { useCopyText } from "@/hooks/useCopyText";
+} from '../../utils/generateSecretSantaList';
+import SelectionItem from '../SelectionItem/SelectionItem';
+import './Selection.css';
+import { slugify } from '@utils/slugify';
+import IconCheck from '@icons/check.svg?react';
+import IconCopy from '@icons/copy.svg?react';
+import { useCopyText } from '@/hooks/useCopyText';
 
 const Selection = () => {
   const players = useGetPlayers();

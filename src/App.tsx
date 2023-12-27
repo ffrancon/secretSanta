@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Candidates from './components/Candidates/Candidates';
 import Selection from './components/Selection/Selection.jsx';
 import PlayersContext from './context/players.js';
-import { ReactComponent as IconSanta } from '@icons/santa.svg';
-import { ReactComponent as IconPresent } from '@icons/present.svg';
+import IconSanta from '@icons/santa.svg?react';
+import IconPresent from '@icons/present.svg?react';
 
 export default function App() {
   const [players, setPlayers] = useState<string[]>([]);

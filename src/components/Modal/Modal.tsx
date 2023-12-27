@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as IconCross } from '@icons/cross.svg';
+import IconCross from '@icons/cross.svg?react';
 import './Modal.css';
 import { UseModalReturn } from '@/hooks/useModal';
 

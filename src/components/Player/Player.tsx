@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './Player.css';
-import { ReactComponent as IconCross } from '@icons/cross.svg';
-import { ReactComponent as IconEdit } from '@icons/edit.svg';
-import { ReactComponent as IconBin } from '@icons/bin.svg';
-import { ReactComponent as IconCheck } from '@icons/check.svg';
+import IconCross from '@icons/cross.svg?react';
+import IconEdit from '@icons/edit.svg?react';
+import IconBin from '@icons/bin.svg?react';
+import IconCheck from '@icons/check.svg?react';
 
 type PlayerProps = {
   player: string;

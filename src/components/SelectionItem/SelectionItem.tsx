@@ -1,5 +1,5 @@
 import './SelectionItem.css';
-import { ReactComponent as IconCopy } from '@icons/copy.svg';
+import IconCopy from '@icons/copy.svg?react';
 import { useCopyText } from '@/hooks/useCopyText';
 
 const SelectionItem = ({

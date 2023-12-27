@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGetPlayersContext } from '@context/players';
 import Player from '../Player/Player';
 import './Candidates.css';
-import { ReactComponent as IconAdd } from '@icons/add.svg';
+import IconAdd from '@icons/add.svg?react';
 import { slugify } from '@utils/slugify';
 
 type ActionParams = {
