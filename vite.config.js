@@ -19,7 +19,7 @@ export default defineConfig({
       '@': path.resolve('.', './src'),
       '@components': path.resolve('.', './src/components'),
       '@utils': path.resolve('.', './src/utils'),
-      '@context': path.resolve('.', './src/context'),
+      '@redux': path.resolve('.', './src/redux'),
       '@icons': path.resolve('.', './src/icons'),
     },
   },

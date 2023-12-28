@@ -1,45 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { useGetPlayers } from '../../context/players';
-import {
-  SecretSantaResult,
-  generateSecretSantaList,
-} from '../../utils/generateSecretSantaList';
+import React from 'react';
 import SelectionItem from '../SelectionItem/SelectionItem';
 import './Selection.css';
 import { slugify } from '@utils/slugify';
-import IconCheck from '@icons/check.svg?react';
 import IconCopy from '@icons/copy.svg?react';
 import { useCopyText } from '@/hooks/useCopyText';
+import { useGetResult } from '@redux/config.slice';
 
 const Selection = () => {
-  const players = useGetPlayers();
-  const [secretSanta, setSecretSanta] = useState<SecretSantaResult>([]);
-  const generateSecretSanta = () => {
-    const selection = generateSecretSantaList(players);
-    setSecretSanta(selection);
-  };
+  const result = useGetResult();
+  const { isCopied, copyText } = useCopyText(JSON.stringify(result));
 
-  useEffect(() => {
-    setSecretSanta([]);
-  }, [players]);
-
-  const { isCopied, copyText } = useCopyText(JSON.stringify(secretSanta));
+  if (result.length === 0) {
+    return null;
+  }
 
   return (
     <div className="Selection">
-      <button
-        onClick={generateSecretSanta}
-        disabled={players.length <= 1}
-        className="Button"
-      >
-        <IconCheck />
-        <span>Générer la liste</span>
-      </button>
       <h2 className="Selection-title">Résultat</h2>
-      {secretSanta.length > 0 && (
+      {result.length > 0 && (
         <>
           <div className="Selection-cards">
-            {secretSanta.map(({ giver, receiver }) => (
+            {result.map(({ giver, receiver }) => (
               <React.Fragment key={`${slugify(giver)}-${slugify(receiver)}`}>
                 <SelectionItem giver={giver} receiver={receiver} />
               </React.Fragment>

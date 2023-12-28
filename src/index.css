@@ -59,6 +59,7 @@
   --secondary: #60df9b;
   --third: #af3636;
   --white: #fefefe;
+  --lightGrey: #cccccc;
   --grey: #454545;
 
   --headerHeight: 100px;
@@ -143,6 +144,11 @@ body.modal-open {
 
 .Button:hover {
   background: var(--third);
+}
+
+.Button:disabled {
+  background: var(--lightGrey);
+  cursor: not-allowed;
 }
 
 .IconButton {

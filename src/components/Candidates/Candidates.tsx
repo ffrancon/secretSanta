@@ -1,58 +1,21 @@
 import React, { useState } from 'react';
-import { useGetPlayersContext } from '@context/players';
 import Player from '../Player/Player';
 import './Candidates.css';
 import IconAdd from '@icons/add.svg?react';
+import IconCheck from '@icons/check.svg?react';
 import { slugify } from '@utils/slugify';
-
-type ActionParams = {
-  action: string;
-  player: string;
-  newValue?: string;
-};
-
-const getUpdatedPlayers = (
-  players: string[],
-  { action, player, newValue = '' }: ActionParams
-) => {
-  const newPlayers = [...players];
-  if (!player) return null;
-  switch (action) {
-    case 'add': {
-      if (!players.includes(player)) newPlayers.push(player);
-      return newPlayers;
-    }
-    case 'remove': {
-      const index = players.indexOf(player);
-      newPlayers.splice(index, 1);
-      return newPlayers;
-    }
-    case 'edit': {
-      if (!players.includes(newValue)) {
-        const index = players.indexOf(player);
-        newPlayers.splice(index, 1, newValue);
-      }
-      return newPlayers;
-    }
-    default:
-      return null;
-  }
-};
+import { addPlayer, setResult, useGetPlayers } from '@redux/config.slice';
+import { useDispatch } from 'react-redux';
+import { generateSecretSantaList } from '@utils/generateSecretSantaList';
 
 const Candidates = () => {
   const [value, setValue] = useState('');
-  const { players, setPlayers } = useGetPlayersContext();
+  const players = useGetPlayers();
+  const dispatch = useDispatch();
 
-  const updatePlayers = ({ action, player, newValue }: ActionParams) => {
-    const updatedPlayers = getUpdatedPlayers(players, {
-      action,
-      player,
-      newValue,
-    });
-    if (!!updatedPlayers) {
-      setPlayers(updatedPlayers);
-      setValue('');
-    }
+  const generateSecretSanta = () => {
+    const result = generateSecretSantaList(players);
+    dispatch(setResult({ result }));
   };
 
   return (
@@ -66,7 +29,8 @@ const Candidates = () => {
           onKeyDown={(e) => {
             const targetValue = (e.target as HTMLInputElement).value;
             if (e.key === 'Enter' && !!targetValue) {
-              updatePlayers({ action: 'add', player: targetValue });
+              dispatch(addPlayer({ player: targetValue }));
+              setValue('');
             }
           }}
           className="Candidates-input"
@@ -74,7 +38,8 @@ const Candidates = () => {
         <button
           className="Candidates-addButton"
           onClick={() => {
-            updatePlayers({ action: 'add', player: value });
+            dispatch(addPlayer({ player: value }));
+            setValue('');
           }}
         >
           <IconAdd />
@@ -85,13 +50,23 @@ const Candidates = () => {
         {players.length > 0 ? ` (${players.length})` : ''}
       </h2>
       {players.length > 0 ? (
-        <div className="Candidates-players">
-          {players.map((p) => (
-            <React.Fragment key={`player-${slugify(p)}`}>
-              <Player player={p} updatePlayers={updatePlayers} />
-            </React.Fragment>
-          ))}
-        </div>
+        <>
+          <div className="Candidates-players">
+            {players.map((player) => (
+              <React.Fragment key={`player-${slugify(player)}`}>
+                <Player player={player} />
+              </React.Fragment>
+            ))}
+          </div>
+          <button
+            onClick={generateSecretSanta}
+            disabled={players.length <= 1}
+            className="Button"
+          >
+            <IconCheck />
+            <span>Générer la liste</span>
+          </button>
+        </>
       ) : (
         <p className="Candidates-emptyList">
           Aucun participant n'a encore été saisi.

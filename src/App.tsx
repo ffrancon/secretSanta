@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import Candidates from './components/Candidates/Candidates';
 import Selection from './components/Selection/Selection.jsx';
-import PlayersContext from './context/players.js';
 import IconSanta from '@icons/santa.svg?react';
 import IconPresent from '@icons/present.svg?react';
+import { Provider } from 'react-redux';
+import { store } from './redux/store.js';
 
 export default function App() {
-  const [players, setPlayers] = useState<string[]>([]);
-
   return (
     <>
       <div id="modal-root"></div>
@@ -20,12 +18,12 @@ export default function App() {
           </p>
           <IconPresent />
         </header>
-        <PlayersContext.Provider value={{ players, setPlayers }}>
+        <Provider store={store}>
           <div className="App-container">
             <Candidates />
-            {players.length > 1 && <Selection />}
+            <Selection />
           </div>
-        </PlayersContext.Provider>
+        </Provider>
       </div>
     </>
   );
